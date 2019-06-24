@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 class  NumData(Dataset):
         def __init__(self, dim, num):
             super().__init__()
-            self.device = 'cpu'#'cuda' if t.cuda.is_available() else 'cpu'
+            self.device = 'cuda' if t.cuda.is_available() else 'cpu'
             self.dim = dim
             self.num = num
             self.w = t.rand(1, dim, device = self.device)*13*t.tensor([1 if t.rand(1,1, device = self.device) >= 0.5 else -1 for i in range(self.dim)], device = self.device, dtype = t.float)
